@@ -90,11 +90,13 @@ void cw21e(int n){
 
 
 void cw21f(int n){
-    //Użytkownik podaje liczbę naturalną n. 
-    //Program wyświetla tabliczkę mnożenia liczb od1 do n
-    // FIXME tabliczka mnożenia ma być w formie kwadratu z wierszami i kolumnami
-    for(int i = 0; i<=n; i++){
-        cout << i << "\t*\t" << n << "\t=\t" << i*n << endl;
+    // Użytkownik podaje liczbę naturalną n. 
+    // Program wyświetla tabliczkę mnożenia liczb od1 do n
+    for(int i = 1; i<=n; i++){
+        for(int j = 1; j<=n; j++){
+            cout << i << "\t*\t" << j << "\t=\t" << i*j << endl;
+        }
+        cout << endl << endl;
     }
 }
 
@@ -111,28 +113,34 @@ double cw21g(int n){
 
 
 bool cw21h(int n){
-    // TODO Sprawdzanie czy liczba naturalna jest liczbą pierwszą.
-    // zwraca true jeśli jest liczbą pierwszą 
-    // zwraca flse jeśli nie jest liczbą pierwszą
+    // Sprawdzanie czy liczba naturalna jest liczbą pierwszą.
+    for(int i = 2; i<=sqrt(n); i++)
+        if(n % i == 0)
+            return false;   // nie jest liczbą pierwszą
+    
+    return true;    // jest liczbą pierwszą
 }
 
 
 bool cw21i(int n){
     // Sprawdzenie czy liczba naturalna jest liczbą doskonałą.
     int suma = 0;
-    for(int i = 1; i<=n-1; i++){
+    for(int i = 1; i<=n/2-1; i++){
         if(n%i == 0)
             suma = suma + i;
     }
-    if (suma == n)
-        return true;
-    else
-        return false;
+    return suma == n;
 }
 
 
 int cw21j(int n){
-    // TODO Obliczanie sumy cyfr podanej liczby.
+    // Obliczanie sumy cyfr podanej liczby.
+    int suma = 0;
+    while(n != 0) {
+        suma += n % 10;
+        n /= 10;
+    }
+    return suma;
 }
 
 
@@ -147,26 +155,34 @@ int cw21l(int n){
 }
 
 
-string cw21m(int n){
+int cw21m(int n){
     // Zmiana liczby z postaci dziesiętnej na dwójkową
-    string bin = "";
+    long long int bin_n = 0;
+    int i = 0;
     while(n != 0){
-        if (n % 2 == 0)
-            bin = "0" + bin;
-        else
-            bin = "1" + bin;
-        n = (n%2)/2;
+        bin_n = bin_n + (n % 2) * pow(10, i);
+        n = n/2;
+        i++;
     }
-    return bin;
-    // FIXME does not work, returns 0 constantly
+    return bin_n;
+    // FIXME narpawić aby działało i zwracało poprawną liczbę
 }
 
 
 int cw21n(int n, int base_n, int base_m){
-    // TODO Zmiana liczby z systemu o podstawie n na system o podstawie m
+    // Zmiana liczby z systemu o podstawie n na system o podstawie m
+    long long int bin_n = 0;
+    int i = 0;
+    while(n != 0){
+        bin_n = bin_n + (n % base_n) * pow(base_m, i);
+        n = n/base_n;
+        i++;
+    }
+    return bin_n;
+    // FIXME naprawić aby działało dla każdego systemu
 }
 
 int main(){
-    cout << cw21m(168);
+    cout << cw21n(23, 17, 10);
     return 0;
 }
