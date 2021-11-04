@@ -88,5 +88,44 @@ int zad34(){
 
 }
 
+void zad38(){
+    // Program symulujący grę w Lotto. Użytkownik wprowadza 6 różnych liczb naturalnych
+    // z zakresu 1–49. Następnie program losuje 6 różnych liczb naturalnych (również z zakresu
+    // 1–49). Program wyświetla na ekranie obie szóstki liczb, oraz liczbę trafień.
+    srand(time(NULL));
+    const int N = 6;
+    int A[N];
+    int results[N];
 
-int main(){}
+    int num_chk;    // helper - holds random value to check if it is inside the list
+
+    int x;
+    cout << "Insert 6 chosen numbers: " << endl;
+    for(int i = 0; i < N; i++){
+        cin >> x;
+        A[i] = x;
+    }
+    for(int i = 0; i < N; i++){
+        num_chk = rand() % 50 + 1;
+        // if (find(
+        //     begin(results), 
+        //     end(results), 
+        //     num_chk
+        //     ) != num_chk){ // if no matches returns last element
+            results[i] = num_chk;
+        // }
+    }
+
+    // results show
+    for(int i = 0; i < N; i++){
+        cout << A[i] << "  " << results[i] << endl;
+
+    }
+
+
+}
+
+
+int main(){
+    zad38();
+}
