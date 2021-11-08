@@ -88,6 +88,7 @@ int zad34(){
 
 }
 
+
 void zad38(){
     // Program symulujący grę w Lotto. Użytkownik wprowadza 6 różnych liczb naturalnych
     // z zakresu 1–49. Następnie program losuje 6 różnych liczb naturalnych (również z zakresu
@@ -119,6 +120,7 @@ void zad38(){
     // results show
     for(int i = 0; i < N; i++){
         cout << A[i] << "  " << results[i] << endl;
+        // TODO pokaż liczbę trafień
 
     }
 
