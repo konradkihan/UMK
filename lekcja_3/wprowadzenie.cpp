@@ -15,8 +15,8 @@ void tablice(){
 }
 
 
-void sortowanie_bombelkowe(){
-    /* algorytm sortowania bombelkowego
+void sortowanie_babelkowe(){
+    /* algorytm sortowania babelkowego
     polega on na przenoszeniu największych elementów na koniec tablicy,
     najprostszy ale najbardziej wydajny */
     #pragma region generowanie tablicy z losowymi liczbami [0; 1]
