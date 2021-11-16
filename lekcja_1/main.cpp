@@ -51,7 +51,7 @@ void rownanie_kw(double a, double b, double c){
         cout<<"x1="  << x1 << " x2=" << x2;
     }
     else if (delta == 0){
-        cout << "x = " << (-b)/2*a;
+        cout << " = " << (-b)/2*a;
     }
     else {
         cout << "brak miejsc zerowych";
@@ -157,14 +157,20 @@ int cw21l(int n){
 
 int cw21m(int n){
     // Zmiana liczby z postaci dziesiętnej na dwójkową
-    long long int bin_n = 0;
-    int i = 0;
-    while(n != 0){
-        bin_n = bin_n + (n % 2) * pow(10, i);
-        n = n/2;
-        i++;
+    int bin_n = 0;
+    int help = 0;
+    int sum = 0;
+    
+    while (n != 0)
+    {
+        help = n%2;
+        bin_n += (help * pow(10, sum));
+        sum ++;
+        n /= 2;
     }
+    
     return bin_n;
+
     // FIXME narpawić aby działało i zwracało poprawną liczbę
 }
 
@@ -179,7 +185,7 @@ int cw21n(int n, int base_n, int base_m){
         i++;
     }
     return bin_n;
-    // FIXME naprawić aby działało dla każdego systemu
+    // FIME naprawić aby działało dla każdego systemu
 }
 
 int main(){
