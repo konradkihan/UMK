@@ -8,7 +8,8 @@ unsigned long long cw21a(int n){
     // Obliczanie silni
     if (n==0)
         return 1;
-    n = n * cw21a(n-1);
+    return n * cw21a(n-1);
+
 }
 
 
@@ -145,13 +146,19 @@ int cw21j(int n){
 
 
 int cw21k(int n){
-    // TODO Sprawdzenie czy dana liczba jest palindromem
-    
+    int odwr_n = 0;
+    while(n > 0){
+        int r = n % 10;
+        odwr_n = odwr_n * 10 + r;
+        n = n/10;
+    }
+    return odwr_n;
 }
 
 
 int cw21l(int n){
     // TODO Zmiana liczby z postaci dwójkowej na dziesiętną
+    return -1;
 }
 
 
@@ -188,7 +195,4 @@ int cw21n(int n, int base_n, int base_m){
     // FIME naprawić aby działało dla każdego systemu
 }
 
-int main(){
-    cout << cw21n(23, 17, 10);
-    return 0;
-}
+int main(){}
