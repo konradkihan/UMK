@@ -14,12 +14,14 @@ long long zad41(int a){
     return s;
 }
 
+
 long long zad42(int n, int k){
     // Napisz program zawierający funkcję obliczającą symbol Newtona liczb podanych
     // przez użytkownika. Program powinien wykorzystywać funkcję z poprzedniego zadania.
     // funkcja zad41() oblicza wartość silni    
     return zad41(n) / (zad41(k)*zad41(n-k));
 }
+
 
 long long zad43(int m, int n){
     // Napisz funkcję, która dla dwóch liczb naturalnych m, n oblicza wartość wyrażenia m^n.
@@ -30,13 +32,14 @@ long long zad43(int m, int n){
     return pow_m;
 }  
 
+
 int zad45(int tab[][MAX], int rozmiar){
     // Napisz funkcję, która dostaje jako argumenty dwuwymiarową tablicę o elementach typu
     // int oraz jej wymiary, i zwraca jako wartość 
     // indeks wiersza o największej średniej wartości elementów.
     int id_sr=0, suma = 0, max_suma = 0;
     for(int i = 0; i < rozmiar; i++){
-        suma += tab[0][j];
+        suma += tab[0][i];
     }
     for(int i = 1; i < rozmiar; i++){
         
@@ -50,34 +53,36 @@ int zad45(int tab[][MAX], int rozmiar){
     return id_sr;
 }
 
-int zad46(
+void zad46(
     int mac_A[][MAX], 
     int mac_B[][MAX], 
-    int n, 
-    int m, 
-    int k
+    int wynik_C[][MAX],
+    int n,
+    int m,
+    int p
     ){
         // Napisz funkcję, która otrzymuje w argumentach dwie prostokątne dwuwymiarowe tablice
         // elementów typu int o wymiarach odpowiednio n × m i m × k oraz ich wymiary, i oblicza
         // iloczyn tych macierzy.
-    }
-
-void generator_2d(int tab[][MAX], int rozmiar){
-    srand(time(NULL));
-    for(int i; i < rozmiar; i++)
-    {
-        for(int j; j < rozmiar; i++){
-            tab[i][j] = 1 + rand() % 100;
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < p; j++){
+                wynik_C[i][j] = 0;
+                for(int k = 0; k < n; k++)
+                    wynik_C[i][j] += mac_A[i][k]*mac_B[k][j];
+            }
         }
     }
-}
-
-
-
 
 
 int main(){
-    const int N = 5;
-    const int M = 5;
-    const int K = 5;
+    // // GENEROWANIE LOSOWYCH MACIERZY
+    // int A[MAX][MAX], B[MAX][MAX], C[MAX][MAX];
+    // int m=4, n=5, p=6;
+    // srand(time(nullptr));
+    // for(int i = 0; i < m; i++)
+    //     for(int j = 0; j < n; j++)
+    //         A[i][j] = rand() % 10;
+    // for(int i = 0; i < n; i++)
+    //     for(int j = 0; j < p; j++)
+    //         B[i][j] = rand() % 10;
 }
