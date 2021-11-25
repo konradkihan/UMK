@@ -36,9 +36,8 @@ unsigned long long cw51e(int n, int m){
 unsigned long long cw51f(int n){
     // Obliczanie sum postaci 
     // Sn = 1/2 + 2/3 + 3/4 + ... + n/(n+1)
-    if(n == 1) return 1;
-    return n/(n+1) + cw51f(n-1);
-    // FIXME funkcja zawsze zwraca 1
+    if(n == 1) return 0.5;
+    return cw51f(n-1) + n/(n+1);
 }
 
 unsigned long long cw51g(int n){
@@ -47,13 +46,32 @@ unsigned long long cw51g(int n){
     return cw51g(n / 10) + 1;
 }
 
-unsigned long long cw51h(){
-    // TODO Wieże Hanoi
+unsigned long long cw51h(int a,char from,char aux,char to){
+    if(a==1){
+       cout<<"\t\tMove disc 1 from "<<from<<" to "<<to<<"\n";
+       return;
+    }
+    else{
+       cw51h(a-1,from,to,aux);
+       cout<<"\t\tMove disc "<<a<<" from "<<from<<" to "<<to<<"\n";
+       cw51h(a-1,aux,from,to);
+    }
 }
+
+void cw51h_print(){
+    int n;
+    cout<<"\n\t\t*****Tower of Hanoi*****\n";
+    cout<<"\t\tEnter number of discs : ";
+    cin>>n;
+    cout<<"\n\n";
+    cw51h(n,'A','B','C');
+}
+
 unsigned long long cw51i(){
     // TODO Wyszukiwanie binarne. Dane są uporządkowana lista i pojedynczy element.
     // Należy sprawdzić czy element występuje na liście i zwrócić jego indeks.
     // Jeżeli nie występuje zwracamy −1.
+    // PATRZEĆ PLIK - wyszukiwanie_binarne.cpp
 }
 unsigned long long cw51j(int n){
     // Ile kawałków pizzy można uzyskać za pomocą n prostoliniowych cięć nożem? 
