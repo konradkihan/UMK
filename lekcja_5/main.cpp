@@ -67,11 +67,21 @@ void cw51h_print(){
     cw51h(n,'A','B','C');
 }
 
-unsigned long long cw51i(){
-    // TODO Wyszukiwanie binarne. Dane są uporządkowana lista i pojedynczy element.
+unsigned long long cw51i(int tab[], int start, int end, int to_find){
+    // Wyszukiwanie binarne. Dane są uporządkowana lista i pojedynczy element.
     // Należy sprawdzić czy element występuje na liście i zwrócić jego indeks.
     // Jeżeli nie występuje zwracamy −1.
-    // PATRZEĆ PLIK - wyszukiwanie_binarne.cpp
+    // PATRZEĆ PLIK - wyszukiwanie_binarne.cpp po więcej informacji
+    int middle;
+    if(start > end)
+        return -1;
+    middle = (start + end) /2;
+    if(tab[middle] == to_find) 
+        return middle;
+    else if(to_find < tab[middle])
+        return cw51i(tab, start, middle-1, to_find);
+    else
+        return cw51i(tab, middle+1, end, to_find);
 }
 unsigned long long cw51j(int n){
     // Ile kawałków pizzy można uzyskać za pomocą n prostoliniowych cięć nożem? 
