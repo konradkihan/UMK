@@ -27,6 +27,7 @@ double cw21b(int n){
 
 
 double cw21b2(){
+    // Użytkownik podaje liczbę naturalną n, a następnie n liczb rzeczywistych a1, a2, . . . , an.
     // Wariacja funckji cw21b() która nie wymaga znajomości
     // ilości wprowadzanych danych
     int ctr = 0;
@@ -192,7 +193,7 @@ int cw21n(int n, int base_n, int base_m){
         i++;
     }
     return bin_n;
-    // FIME naprawić aby działało dla każdego systemu
+    // FIXME naprawić aby działało dla każdego systemu
 }
 
 int main(){}
