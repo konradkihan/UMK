@@ -4,6 +4,8 @@ using namespace std;
 
 
 void sortowanie_babelkowe(int tab[], int size){
+    /* algorytm sortowania bąblkowego porównuje każdy element j tablicy porównuje z każdym innym elementem i jeśli dojdzie do sytuacji,
+    w której element j jest większy od j+1 zostają one zamienione na zasadzie "wiekszy bąbelek wypływa na powierzchnię" */
     for(int i = 0; i < size-1; i++)
         for(int j = 0; j < size-1; j++)
             if(tab[j] > tab[j+1])
