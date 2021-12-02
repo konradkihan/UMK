@@ -49,27 +49,56 @@ int zad63(string s, char x){
 
 
 int zad64(string s){
-    /* TODO Napisz funkcję, która przyjmuje jako 
-    argument string i sprawdza czy jest on palindro-mem. 
-    W zależności od tego zwraca 0 lub 1.*/
+    /* Napisz funkcję, która przyjmuje jako 
+    argument string i sprawdza czy jest on palindromem. 
+    W zależności od tego zwraca 0 lub 1. */
+    for(int i = 0; i <= s.size(); i++){
+        if(s[i] != s[s.size()-1-i])
+            return 0;
+    }
+    return 1;
 }
 
 
-void zad65(string tab[]){
-    /* TODO Napisz funkcję sortującą tablice stringów. */
+void zad65(string tab[], int size){
+    /* Napisz funkcję sortującą tablice stringów. */
+    for(int i = 0; i < size; i++)
+        for(int j = 0; j < size-1; j++)
+            if(tab[j] > tab[j+1])
+                swap(tab[j], tab[j+1]);
+    cout << tab;
 }
 
 
 bool zad66(string s, string ps){
     /* TODO Napisz funkcję, która przyjmuje jako argumenty 
-    dwa stringi i sprawdza czy drugi stringwystępuje
+    dwa stringi i sprawdza czy drugi string występuje
     w pierwszym jako podciąg. */
+}
+
+string sortuj_str(string s){
+    /* Sortowanie stringów */
+    for(int i = 0; i < s.size(); i++)
+        for(int j = 0; j < s.size()-1; j++)
+            if(s[j] > s[j+1])
+                swap(s[j], s[j+1]);
+    return s;
 }
 
 int zad67(string s, string an_s){
     /* TODO Napisz funkcję, która przyjmuje jako argumenty 
-    dwa stringi i sprawdza czy są oneanagramami.
+    dwa stringi i sprawdza czy są one anagramami.
     W zależności od tego zwraca 0 lub 1. */
+    if(s.size() != an_s.size())
+        return 0;
+
+    if(sortuj_str(s) != sortuj_str(an_s))
+        return 0;
+    
+    return 1;
 }
 
-int main(){}
+
+int main(){
+    cout << zad67("kra", "rak");
+}

@@ -158,42 +158,52 @@ int cw21k(int n){
 
 
 int cw21l(int n){
-    // TODO Zmiana liczby z postaci dwójkowej na dziesiętną
-    return -1;
+    int r;
+	int postac_10=0;
+	int i=0;
+	
+	while(n!=0)
+	{
+		r=n%10;
+		postac_10+=r*pow(2,i);
+		i++;
+		n=n/10;
+	}
+	return postac_10;
 }
 
 
 int cw21m(int n){
     // Zmiana liczby z postaci dziesiętnej na dwójkową
-    int bin_n = 0;
-    int help = 0;
-    int sum = 0;
-    
-    while (n != 0)
-    {
-        help = n%2;
-        bin_n += (help * pow(10, sum));
-        sum ++;
-        n /= 2;
-    }
-    
-    return bin_n;
-
-    // FIXME narpawić aby działało i zwracało poprawną liczbę
+    const int LEN = 10;
+    int a[LEN];
+    for(int i=0; n>0; i++){    
+        a[i]=n%2;    
+        n= n/2;  
+    }    
+    cout<<"Bin:";    
+    for(int i=LEN ;i>=0 ;i--){    
+        cout<<a[i];    
+    }    
 }
 
 
-int cw21n(int n, int base_n, int base_m){
+int cw21n(int n, int base){
     // Zmiana liczby z systemu o podstawie n na system o podstawie m
-    long long int bin_n = 0;
-    int i = 0;
-    while(n != 0){
-        bin_n = bin_n + (n % base_n) * pow(base_m, i);
-        n = n/base_n;
-        i++;
-    }
-    return bin_n;
-    // FIXME naprawić aby działało dla każdego systemu
+    /* n - liczba w systemie dziesiętnym
+    base - podstawa systemu do konwersji */
+	long double k_int=0;
+	int i=0;
+    /* tak długo jak liczba jest większa od 0 to będzie wykonywana operacja MOD baza systemu
+    i dodanie wyniku działania na odpowiedni rząd wielkości określany zmienną i*/
+	while(n!=0){
+		k_int+=(n%base)*pow(10,i);
+		n=n/base;
+		i++;
+		}
+	
+	//Liczba postaci base
+    return k_int;
 }
 
 int main(){}
