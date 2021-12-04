@@ -76,5 +76,5 @@ int k_to_dec(int n, int base){
 
 
 int main(){
-    k_to_dec(101, 2);
+    dec_to_hex(205);
 }
