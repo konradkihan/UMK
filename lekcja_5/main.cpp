@@ -1,6 +1,9 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 /* Napisać programy rozwiązujące w sposób rekurencyjny następujące problemy */
+
+
 unsigned long long cw51a(int n){
     // Obliczanie silni
     if (n==0) return 1;
@@ -14,17 +17,20 @@ unsigned long long cw51b(int n, int k){
     return cw51b(n-1, k-1) + cw51b(n-1, k);
 }
 
+
 unsigned long long cw51c(int n){
     // Obliczanie n-tego wyrazu ciągu Fibonacciego
     if(n == 1 || n == 2) return 1;
     return cw51c(n-2) + cw51c(n-1);
 }
 
+
 unsigned long long cw51d(int n, int b){
     // Algorytm euklidesa
     if(b == 0) return n;
     return cw51d(b, n % b);
 }
+
 
 unsigned long long cw51e(int n, int m){
     // potęgowanie liczb naturalnych
@@ -33,6 +39,7 @@ unsigned long long cw51e(int n, int m){
     return n * cw51e(n, m-1);
 }
 
+
 unsigned long long cw51f(int n){
     // Obliczanie sum postaci 
     // Sn = 1/2 + 2/3 + 3/4 + ... + n/(n+1)
@@ -40,16 +47,19 @@ unsigned long long cw51f(int n){
     return cw51f(n-1) + n/(n+1);
 }
 
+
 unsigned long long cw51g(int n){
     // Wyznaczanie liczby cyfr w podanej liczbie naturalnej
     if (n < 10) return 1;
     return cw51g(n / 10) + 1;
 }
 
+
 unsigned long long cw51h(int a,char from,char aux,char to){
+    // Wieże hanoi
     if(a==1){
        cout<<"\t\tMove disc 1 from "<<from<<" to "<<to<<"\n";
-       return;
+       return 1;
     }
     else{
        cw51h(a-1,from,to,aux);
@@ -57,6 +67,7 @@ unsigned long long cw51h(int a,char from,char aux,char to){
        cw51h(a-1,aux,from,to);
     }
 }
+
 
 void cw51h_print(){
     int n;
@@ -66,6 +77,7 @@ void cw51h_print(){
     cout<<"\n\n";
     cw51h(n,'A','B','C');
 }
+
 
 unsigned long long cw51i(int tab[], int start, int end, int to_find){
     // Wyszukiwanie binarne. Dane są uporządkowana lista i pojedynczy element.
@@ -83,6 +95,8 @@ unsigned long long cw51i(int tab[], int start, int end, int to_find){
     else
         return cw51i(tab, middle+1, end, to_find);
 }
+
+
 unsigned long long cw51j(int n){
     // Ile kawałków pizzy można uzyskać za pomocą n prostoliniowych cięć nożem? 
     // (Bardziej „matematycznie” — jaka jest największa liczba Ln obszarów wyznaczonych przez n
@@ -90,13 +104,51 @@ unsigned long long cw51j(int n){
     if(n == 1) return 2;
     return n + cw51j(n-1);
 }
-unsigned long long cw51k(){
-    // TODO Obliczanie wyznacznika macierzy (korzystając z rozwinięcia Laplace'a)
-}
-unsigned long long cw51l(int n){
-    // TODO generowanie wszystkiech permutacji zbioru n-elementowego
+
+
+double cw51k( int n, int w, int * WK, double ** A ){
+    // https://eduinf.waw.pl/inf/alg/001_search/0078.php
+    int i, j, k, m, * KK;
+    double s;
+
+    if( n == 1 )                     // sprawdzamy warunek zakończenia rekurencji
+        return A [ w ][ WK [ 0 ] ];    // macierz 1 x 1, wyznacznik równy elementowi
+    else{
+        KK = new int [ n - 1 ];        // tworzymy dynamiczny wektor kolumn
+        s = 0;                         // zerujemy wartość rozwinięcia
+        m = 1;                         // początkowy mnożnik
+        for( i = 0; i < n; i++ ){       // pętla obliczająca rozwinięcie
+            k = 0;                       // tworzymy wektor kolumn dla rekurencji
+            for( j = 0; j < n - 1; j++ ){ // ma on o 1 kolumnę mniej niż WK
+                if( k == i ) k++;          // pomijamy bieżącą kolumnę
+                KK [ j ] = WK [ k++ ];     // pozostałe kolumny przenosimy do KK
+            }
+            s += m * A [ w ][ WK [ i ] ] * cw51k( n - 1, w  + 1, KK, A );
+            m = -m;                      // kolejny mnożnik
+        }
+        delete [ ] KK;                 // usuwamy zbędną już tablicę dynamiczną
+        return s;                      // ustalamy wartość funkcji
+    }
 }
 
+
+int cw51l(int n, int tab[]){
+    // n = rozmiar tablicy tab
+    // http://algorytmika.wikidot.com/exponential-permut
+    // generowanie wszystkiech permutacji zbioru n-elementowego
+
+    if(n==1){
+        return 1;
+    for(int i=0; i <= n; i++){
+        swap(tab[i], tab[n]);
+        return cw51l(n-1, tab);
+        swap(tab[i], tab[n]);
+    }
+    return 1;
+
+}
+
+
 int main(){
-    cout<<cw51g(43243);
+
 }

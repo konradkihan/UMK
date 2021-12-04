@@ -71,10 +71,23 @@ void zad65(string tab[], int size){
 
 
 bool zad66(string s, string ps){
-    /* TODO Napisz funkcję, która przyjmuje jako argumenty 
+    /*  TESTME
+    Napisz funkcję, która przyjmuje jako argumenty 
     dwa stringi i sprawdza czy drugi string występuje
     w pierwszym jako podciąg. */
+
+    for(int i = 0; i < s.size() - ps.size(); i++){
+        for(int j = 0; j < ps.size(); j++){
+            if(ps[i+j] != s[j]){
+                break;
+            }
+            if(j == s.size())
+                return true;
+        }
+    }
+    return false;
 }
+
 
 string sortuj_str(string s){
     /* Sortowanie stringów */
@@ -85,8 +98,9 @@ string sortuj_str(string s){
     return s;
 }
 
+
 int zad67(string s, string an_s){
-    /* TODO Napisz funkcję, która przyjmuje jako argumenty 
+    /* Napisz funkcję, która przyjmuje jako argumenty 
     dwa stringi i sprawdza czy są one anagramami.
     W zależności od tego zwraca 0 lub 1. */
     if(s.size() != an_s.size())
@@ -100,5 +114,5 @@ int zad67(string s, string an_s){
 
 
 int main(){
-    cout << zad67("kra", "rak");
+    cout << zad67("aab", "bab");
 }
