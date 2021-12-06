@@ -4,16 +4,14 @@
 using namespace std;
 
 int bin_to_dec(int n){
-	int r;
 	int postac_10=0;
 	int i=0;
 	
-	while(n!=0)
-	{
-		r=n%10;
-		postac_10+=r*pow(2,i);
+	while(n!=0){
+		postac_10 += (n%10)*pow(2,i);
 		i++;
 		n=n/10;
+
 	}
 	return postac_10;
 }
@@ -43,35 +41,34 @@ void dec_to_hex(int n)
 int dec_to_k(int n, int base){
     /* n - liczba w systemie dziesiętnym
     base - podstawa systemu do konwersji */
-	long double k_int=0;
+	long double postac_k=0;
 	int i=0;
     /* tak długo jak liczba jest większa od 0 to będzie wykonywana operacja MOD baza systemu
     i dodanie wyniku działania na odpowiedni rząd wielkości określany zmienną i*/
 	while(n!=0){
-		k_int+=(n%base)*pow(10,i);
+		postac_k += (n%base)*pow(10,i);
 		n=n/base;
 		i++;
-		}
+	}
 	
 	//Liczba postaci base
-    return k_int;
+    return postac_k;
 }
 
 
 int k_to_dec(int n, int base){
     /* n - liczba w systemie base
     base - podstawa systemu do konwersji */				
-		int dec_int=0;
-		int i=0;
-			while(n!=0)
-			{
-                /* wykonanie operacji modulo oraz dodanie wyniku na odpowiedni rząd liczby w systemie dec */
-				dec_int+=(n%10)*pow(base, i);
-				n=n/10;
-				i++;
-			}		
-        //Postac [10]:
-        return dec_int;
+	int postac_10=0;
+	int i=0;
+	while(n!=0){
+    /* wykonanie operacji modulo oraz dodanie wyniku na odpowiedni rząd liczby w systemie dec */
+		postac_10+=(n%10)*pow(base, i);
+		n=n/10;
+		i++;
+	}		
+    //Postac [10]:
+    return postac_10;
 }
 
 

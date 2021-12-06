@@ -45,7 +45,7 @@ void sortowanie_selekcja(){
     #pragma endregion
     
     #pragma algorytm sortowania
-        for(int i = 0; i <= N-1; i++){
+        for(int i = 0; i <= N-1; i++){ // N - rozmiar tablicy
             double minimum;
             int min_index = i; // zmienna pomocnicza przechowująca indeks najmniejszego elementu w zakresie w tablicy
             minimum = tab[i];

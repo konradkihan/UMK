@@ -10,7 +10,6 @@ void czy_pierwsza(int n){
     bool czy_pierwsza[N];
 
     
-    cout << "Podaj n: "; // int n; cin >> n;
     for(int i = 2; i <= n; i++)
         czy_pierwsza[i] = true;
 
