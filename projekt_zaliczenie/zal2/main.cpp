@@ -12,13 +12,20 @@ Konrad Kihan 2022
 
 using namespace std;
 
+// TODO zaimplementowac to_lower() aby wyszukiwalo slowa niezależnie od rozmiaru ich liter
+// TODO zaimplementować usuwanie przecinków i kropek aby nie były wliczane do słowa
+// TODO poprawić komentarze (ewentualnie popracować nad czytelnością kodu)
 
-bool is_duplicate(string word, string tab[], int tab_ctr[], string tab_lines[], int tab_size, int line_number){
+
+// BUG naprawić komunikację z użytkownikiem kiedy raz podana nazwa pliku wejściowego zostaje zapisana na zawsze
+
+
+bool is_duplicate(string word, string tab[], string tab_lines[], int tab_size, int line_number){
+    /* sprawdza duplikaty i jeśli istnieją dopisuje ich lokalizację w liście line_number */
     bool is_dupe = false;
     for(int i = 0; i < tab_size; i++){
         if(tab[i] == word){
             tab_lines[i] += to_string(line_number);
-            tab_ctr[i] += 1;
             is_dupe = true;
             break;
         }
@@ -28,48 +35,123 @@ bool is_duplicate(string word, string tab[], int tab_ctr[], string tab_lines[], 
 
 
 
-int read_file(string name){
+void make_data(string name, int tab_size, string words[], string words_lines[] ){
+    /* funkcja czyta plik z danymi wejścowymi a następnie do listy words dodaje
+    słowa które napotka, jeśli nie są duplikatami, natomiast w tablicy words_lines
+    znajduje się napis łączący numery wszystkich linii w których znajduje się słowo */
     fstream file;
     file.open(name, ios::in);
-    if(!file.good()) return -1;
+    if(!file.good()) cout << "Nie mozna otworzyc pliku" << endl;
     
-    
-    string str, line;
-    const int TAB_SIZE = 1000;
-    string words[TAB_SIZE];
-    string words_lines[TAB_SIZE];
-    int words_ctr[TAB_SIZE];
-    
+    else{
+        string str, line;
         
-    int id = 0;
-    int line_number = 1;
-    while(getline(file, line)){
-        stringstream ss(line);
-        while(getline(ss, str, ' ')){
-            if(!is_duplicate(str, words, words_ctr, words_lines, id, line_number)){
-                words_lines[id] += to_string(line_number);
-                words_ctr[id] = 1;
-                words[id] = str;
-                id++;
-            }
-
             
-        }
-        line_number++;
-    }
-    
-    for(int i = 0; i < TAB_SIZE; i++){
-        if(words[i]=="") break; 
-        cout << words[i] <<" "<< words_ctr[i] <<" | "<< words_lines[i] <<endl;
-        
-    }
-    
-return 1;
+        int id = 0;
+        int line_number = 1;
+        while(getline(file, line)){
+            stringstream ss(line);
+            while(getline(ss, str, ' ')){
+                if(!is_duplicate(str, words, words_lines, id, line_number)){
+                    words_lines[id] += to_string(line_number);
+                    words[id] = str;
+                    id++;
+                }
 
+                
+            }
+            line_number++;
+        }
+        file.close();
+    }
+}
+
+void sort_words(int tab_size, string words[], string words_lines[]){
+    /* funkcja sortuje listę słów alfabetycznie */
+    for(int i = 0; i < tab_size-1; i++){
+        for(int j = 0; j < tab_size-1; j++){
+            if(words[j] > words[j+1] && words[j+1] != ""){
+                swap(words[j], words[j+1]);
+                swap(words_lines[j], words_lines[j+1]);
+            }
+        }
+    }
+}
+
+void console_presentation(int tab_size, string words[], string words_lines[]){
+    /* funkcja prezentuje wynik działania programu do konsoli */
+    sort_words(tab_size, words, words_lines);
+    for(int i = 0; i<tab_size; i++){
+        if(words[i]=="") break; 
+        cout << i+1 <<".\t"<< words[i] << " || Wystapienia: ";
+        for(int j=0; j<words_lines[i].size(); j++){
+            cout << words_lines[i][j];
+            if(j+1 != words_lines[i].size()) cout << ", ";
+        }
+        cout << endl;
+    }
+}
+
+
+void save_to_file(string name, int tab_size, string words[], string words_lines[]){
+    /* funkcja zapisuje wynik działania programu do pliku wskazanego przez użytkownika */
+    fstream file;
+    file.open(name, ios::out);
+    if(!file.good()) cout<<"Nie mozna otworzyc pliku" << endl;
+    else{
+        for(int i = 0; i<tab_size; i++){
+            if(words[i]=="") break; 
+            file << i+1 <<".\t"<< words[i] << " || Wystapienia: ";
+            for(int j=0; j<words_lines[i].size(); j++){
+                file << words_lines[i][j];
+                if(j+1 != words_lines[i].size()) file << ", ";
+            }
+            file << endl;
+        }
+        file.close();
+    }
 }
 
 
 
+
+
 int main(){
-    read_file("test.txt");
+    const int TAB_SIZE = 1000;
+    string words[TAB_SIZE];
+    string words_lines[TAB_SIZE];
+    
+
+    cout << "Program do generowania skorowidzow." << endl << endl;
+
+    while(true){
+        string in_file, out_file, yes_no;
+        cout << "Wpisz lokalizacje / nazwe pliku, ktorego skorowidz ma byc utworzony:" << endl << ">>> ";
+        cin >> in_file;
+        
+        cout << "Czy wynik dzialania programu ma byc zapisany do pliku? Wpisz 'tak' lub 'nie', 'q' aby wyjsc." << endl << ">>> ";
+        cin >> yes_no;
+        
+        if(yes_no == "q") break;
+        
+        if(yes_no == "tak"){
+            cout << "Jak ma nazywac sie plik do ktorego zapisany jest skorowidz?" << endl << ">>> ";
+            cin >> out_file;
+
+            make_data(in_file, TAB_SIZE, words, words_lines);
+            sort_words(TAB_SIZE, words, words_lines);
+            save_to_file(out_file, TAB_SIZE, words, words_lines);
+        }
+        else if(yes_no == "nie"){
+            make_data(in_file, TAB_SIZE, words, words_lines);
+            sort_words(TAB_SIZE, words, words_lines);
+            console_presentation(TAB_SIZE, words, words_lines);
+        }
+        else{
+            cout << "Niepoprawne dane.";
+        }
+        cout << "Wykonano!" << endl;
+        
+    }
+    cout << "Konczenie dzialania.";
 }
