@@ -44,6 +44,10 @@ a:hover{
     color: #80142B;
     text-decoration: none;
 }
+.paragraph-box a:hover{
+    color: #C6C6C6;
+    text-decoration: none;
+}
 
 
 main{
@@ -88,6 +92,7 @@ main{
     padding: 20px;
     margin: 80px 20px 20px;
     background-color: #646464;
+    /* TODO zmienić szerokość do ok 50 ~ 75% */
 }
 .shorts{
     border-top-width: 5px;
@@ -122,9 +127,5 @@ main{
 
 
 /* 
-TODO for drivers https://stackoverflow.com/questions/31856072/how-to-display-text-on-click-using-jquery-or-ajax 
-also for drivers add pictures
-TODO both articles
-TODO https://www.w3schools.com/howto/howto_js_slideshow.asp for car liveries
 TODO some fancy css / js on other pages
 */
