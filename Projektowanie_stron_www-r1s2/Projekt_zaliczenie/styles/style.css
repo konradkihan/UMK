@@ -41,7 +41,7 @@ a{
     text-decoration: none;
 }
 a:hover{
-    color: #C6C6C6;
+    color: #80142B;
     text-decoration: none;
 }
 
@@ -83,7 +83,7 @@ main{
 .navbar a.active{
     background-color: #414141;
 }
-.about{
+.paragraph-box{
     border-radius: 10px;
     padding: 20px;
     margin: 80px 20px 20px;

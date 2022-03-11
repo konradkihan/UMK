@@ -9,7 +9,8 @@
     <meta name="author" content="Konrad Kihan">
 
     <link rel="icon" type="image/x-icon" href="/images/f1_logo.svg">
-    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,75 +20,67 @@
 
 <body>
     
-    <header id="header">
-        Nieoficjalna strona F1 o sezonie 2021
+    <header class="header">
+        <a href="../../index.html">Nieoficjalna strona F1 o sezonie 2021</a>
     </header>
 
-    <nav id="navbar">
-        <a href="subpages/articles/news.html">Nowości</a> 
-        <a href="/subpages/cars.html">Samochody</a> 
-        <a href="/subpages/drivers.html">Kierowcy</a> 
-        <a href="/subpages/teams.html">Zespoły</a> 
-            
+    <nav class="navbar text-decoration-none">
+        <div class="row">
+            <div class="col">
+                <a href="news.html">Nowości</a> 
+            </div>
+            <div class="col">
+                <a href="../cars.html">Samochody</a>
+            </div>
+            <div class="col">
+                <a href="../drivers.html">Kierowcy</a>
+            </div>
+            <div class="col">
+                <a href="../teams.html">Zespoły</a> 
+            </div>
+        </div>
     </nav>
 
-    <main>
-        <article id="about">
-            <h3>
-                O stronie:
-            </h3>
+    <main class="content text-decoration-none">
+        <article  class="paragraph-box">
+            <h3>Koniec sezonu 2021 Formuły 1</h3>
             <p>
-                Strona powstała jako porjekt na zaliczenie. Nie jestem mistrzem dobierania kolorów, więc jeśli paleta, której tutaj użyję
-                będzie wyglądała okropnie - przepraszam. W zamian starałem skupić się na stronie backendowej. <br>
-                Do napisania strony wykorzystałem HTML, CSS oraz JS. <br>
-                Zawartość strony: strona składa się ze strony głównej, a także strony z informacjami o
-                <ul>
-                    <li>
-                        samochodach - podstrona prezentująca tegoroczne malowania bolidów
-                    </li>
-                    <li>
-                        kierowcach - zbiór krótkich informacji o kierowcach obecnego sezonu
-                    </li>
-                    <li>
-                        zespołach - zbiór informacji o tegorocznych zespołach startujących w zawodach
-                    </li>
-                </ul>
-                Znajdują się także dwa przykładowe artykuły - o wydarzeniach na silverstone, oraz kontrowersjach
-                związanych z Abu Dabi GP.
-                
+                Ekscytujący, fantastyczny, wspaniały, niesamowity... jest wiele słów aby opisać ten sezon. Pełen kontrowersji, potu i emocji, prawdopodobnie mój ulubony od kiedy sam jestem
+                fanem F1, a zdaniem wielu - pierwszy tak emocjonujący od 2010 roku. Hisotryczna walka LH44 z MV33, sezon przepakowany emocjami i kontrowersji od pierwszego okrążenia.
+            </p>
+            <p>
+                Od kwestionowanych przez wielu decyzji dotyczących regulacji zakrętu 4 w rundzie 1, przez ogromną kolizję na GP Wielkiej Brytanii po ostatnie okrążenie ostatniej rundy, które
+                zaważyło na tym kto zdobędzie tytuł mistrza świata ten sezon będzie ciężki do zapomnienia...
+            </p>
+            <p>
+                Więcej o końcu sezonu można przeczytać tutaj: <a href="season_end.html">w dedykowanym artykule</a>. (tak na prawdę to nie, znajduje się tam trochę lorem ipsum, ale za to ładnie wygląda z podpiętym CSSem)
             </p>
         </article>
-
-        <div class="article_short">
-            <a href="subpages/articles/season_end.html" class="article-panel">
-                <h3 class="article-mini-title">Koniec sezonu 2021</h3>
-            
-                <article>
-                    Koniec sezonu 2021 zakończył się dramatycznym wyprzedzeniem samochodu #LH44 przez
-                    belga Maxa Verstappena...
-                </article>
-            </a>
-        </div>
-        <div class="article_short">
-            <a href="subpages/articles/silverstone.html" class="article-panel">
-                <h3 class="article-mini-title">Dramatyczne wydarzenia na Silverstone</h3>
-            
-                <article>
-                    Już na pierwszym okrążeniu doszło do zaciętej walki między samochodami 44 i 33, w wyniku której...
-                </article>
-            </a>
-        </div>
-        
+        <article class="paragraph-box">
+            <h3>
+                Silverstone - kolizja
+            </h3>
+            <p>
+                Hamilton wyrzucił Verstappena z toru. Spektakularny wypadek, w którym pomimo uderzenia w barierę z siłą 157 G kierowca Red Bull Racing nie otrzymał żadnych obrażeń.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta neque porttitor dapibus bibendum. Orci varius natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Aenean ipsum odio, volutpat sed iaculis vel, lobortis at libero. Duis vestibulum urna ac augue volutpat, ac blandit tortor molestie. 
+                Curabitur sit amet mauris ac risus porta interdum. In sapien nulla, dictum ut porta sed, posuere pharetra turpis.
+            </p>    
+        </article>
     </main>
 
-    <footer id="footer">
-        <h4>
-            Autor: Konrad Kihan
-        <h4>
-        <p>
-            grupa LG, informatyka inżynierska 1rok<br>
-            numer indeksu: 313101
-        </p>
+    <footer class="footer">
+        <div class="footer-info">
+            <h4>
+                Autor: Konrad Kihan
+            <h4>
+            <p>
+                grupa LG, informatyka inżynierska 1rok<br>
+                numer indeksu: 313101
+            </p>
+        </div>
     </footer>
 
 
