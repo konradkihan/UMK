@@ -1,0 +1,130 @@
+/* :root{
+   color-primary: #646464;
+    color-secondary: #C6C6C6;
+    color-accent: #80142B;
+    color-accent2: #00A19C;
+    color-background: #414141;
+    black: #000000;
+
+    size-small: 5px;
+    size-medium: 10px;
+    size-large: 15px;
+    size-xlarge: 25px;
+
+    time-fast: 0.3s;
+    time-medium: 0.5s;
+    time-slow: 1s 
+} */
+
+
+html{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    background-image: linear-gradient(180deg, #414141, #000000);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #C6C6C6;
+    font-family: 'Open Sans', sans-serif;
+    margin: auto;
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+a{
+    color: #C6C6C6;
+    text-decoration: none;
+}
+a:hover{
+    color: #C6C6C6;
+    text-decoration: none;
+}
+
+
+main{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.header{
+    background-color: #80142B;
+    display: inline-block;
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+}
+.navbar{
+    background-color: #646464;
+    margin: 0px;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.navbar a{
+    background-color: #646464;
+    float: left;
+    text-decoration: none;
+    font-size: x-large;
+    padding: 15px 20px;
+    margin: 0;
+    transition: all 0.3s ease-out;
+    
+}
+.navbar a:hover{
+    background-color: #414141;
+}
+.navbar a.active{
+    background-color: #414141;
+}
+.about{
+    border-radius: 10px;
+    padding: 20px;
+    margin: 80px 20px 20px;
+    background-color: #646464;
+}
+.shorts{
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-image: linear-gradient(to left, #80142B, #00A19C, #80142B) 100% 1;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 10px;
+}
+.article-short{
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 20px 40px 20px;
+    background-color: #646464;
+    box-shadow: 5px 5px 10px #000000;
+    
+    transition: box-shadow 1s ease-in-out;
+    transition: all 1s ease-out;
+}
+.article-short:hover{
+    padding: 40px;
+    background-color: #646464;
+    box-shadow: 5px 5px 10px #00A19C;
+}
+.footer{
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #C6C6C6;
+}
+
+
+/* 
+TODO for drivers https://stackoverflow.com/questions/31856072/how-to-display-text-on-click-using-jquery-or-ajax 
+also for drivers add pictures
+TODO both articles
+TODO https://www.w3schools.com/howto/howto_js_slideshow.asp for car liveries
+TODO some fancy css / js on other pages
+*/

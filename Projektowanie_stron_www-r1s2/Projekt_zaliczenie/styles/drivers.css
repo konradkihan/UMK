@@ -1,0 +1,35 @@
+.global-settings{
+    transition: all 1s ease-out;
+    border-radius: 10px;
+}
+
+.mercedes-background:hover{
+    background-color: #00A19C40;
+}
+.redbull-background:hover{
+    background-color: #1B2B5A40;
+}
+.ferrari-background:hover{
+    background-color: #A6051A40;
+}
+.mclaren-background:hover{
+    background-color: #ffa11240;
+}
+.alpine-background:hover{
+    background-color: #0090FF40;
+}
+.haas-background:hover{
+    background-color: #FFFFFF90;
+}
+.aston-background:hover{
+    background-color: #006F6240;
+}
+.alpha-background:hover{
+    background-color: #2B456240;
+}
+.alfaromeo-background:hover{
+    background-color: #90000040;
+}
+.williams-background:hover{
+    background-color: #005AFF40;
+}
