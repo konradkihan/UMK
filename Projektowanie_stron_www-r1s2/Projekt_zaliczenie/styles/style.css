@@ -62,6 +62,10 @@ main{
     width: 100%;
     text-align: center;
 }
+.header img{
+    height: 10px;
+}
+/* Navigation bar on top */
 .navbar{
     background-color: #646464;
     margin: 0px;
@@ -87,6 +91,8 @@ main{
 .navbar a.active{
     background-color: #414141;
 }
+
+/* Page content */
 .paragraph-box{
     border-radius: 10px;
     padding: 20px;
@@ -117,12 +123,19 @@ main{
     background-color: #646464;
     box-shadow: 5px 5px 10px #00A19C;
 }
+
+/* Page footer */
 .footer{
     margin-top: auto;
     display: flex;
     justify-content: center;
     text-align: center;
     color: #C6C6C6;
+}
+
+/* Slide show on drivers page */
+.slide img{
+    width: 50%;
 }
 
 

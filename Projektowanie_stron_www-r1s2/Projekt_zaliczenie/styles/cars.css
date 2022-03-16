@@ -1,0 +1,52 @@
+:root{
+  --image-width: 90%;
+  /* --imgae-height: 80%; */
+}
+
+img{
+  width: var(--image-width);
+  height: var(--imgae-height);
+}
+
+.slider-container{
+  /* FIXME to modify size and proportions */
+  width: var(--image-width);
+  margin: 40px auto;
+  overflow: auto;
+}
+
+.slider-inner{
+  /* FIXME to modify size and proportions (size of it has to be the same
+  size as the img size inside */
+  width: var(--image-width);
+  /* height: var(--imgae-height); */
+
+  position: relative;
+  overflow: hidden;
+  float: left;
+  padding: 3px;
+  /* border: #666 solid 1px; */
+}
+
+.slider-inner img{
+  display: none;
+  width: var(--image-width);
+  height: var(--imgae-height);
+}
+
+.slider-inner img.active{
+  display: inline-block;
+}
+.prev, .next{
+  float: left;
+  margin-top: 25%;
+  cursor: pointer;
+}
+.prev{
+  position: relative;
+  z-index: 100;
+}
+.next{
+  position: relative;
+  z-index: 100;
+}
