@@ -3,7 +3,6 @@ W funkcji głównej programu pobierz ze standardowego wejścia liczbę elementó
 Następnie wyświetl na standardowe wyjście wynik wywołania dla tych liczb zaimplementowanej wcześniej funkcji merge_sort. Wyświetlane liczby oddziel znakiem nowej linii.
 W trakcie testowania programu pamiętaj, że system sprawdzający jest bezwzględny jak każda maszyna. 
 Dlatego zwróć uwagę na format zapisu danych wejściowych oraz format wyświetlania wyniku, a także na białe znaki! */
-
 #include<iostream>
 using namespace std;
 
