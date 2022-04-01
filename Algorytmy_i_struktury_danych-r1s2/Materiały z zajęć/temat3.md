@@ -17,7 +17,7 @@ Zatem zachodziS(n) ≥ C(n) = ⌈logn!⌉ ≥ nlogn−1.45n
 
 ## zadanie 2. 
 Uzupełnij następujący pseudokod algorytmu sortowania przez scalanie
-```
+```cpp
 // A - tablica/lista do posortowania wielkości n
 function MergeSort(A, n):
 	if n > 1:
