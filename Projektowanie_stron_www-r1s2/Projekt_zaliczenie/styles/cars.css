@@ -1,5 +1,5 @@
 :root{
-  --image-width: 90%;
+  --image-width: 98%;
   /* --imgae-height: 80%; */
 }
 
@@ -19,13 +19,11 @@ img{
   /* FIXME to modify size and proportions (size of it has to be the same
   size as the img size inside */
   width: var(--image-width);
-  /* height: var(--imgae-height); */
 
   position: relative;
   overflow: hidden;
   float: left;
-  padding: 3px;
-  /* border: #666 solid 1px; */
+  padding: 5px;
 }
 
 .slider-inner img{
