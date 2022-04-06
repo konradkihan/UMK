@@ -1,13 +1,3 @@
-:root{
-  --image-width: 98%;
-  /* --imgae-height: 80%; */
-}
-
-img{
-  width: var(--image-width);
-  height: var(--imgae-height);
-}
-
 .slider-container{
   /* FIXME to modify size and proportions */
   width: var(--image-width);
@@ -37,7 +27,7 @@ img{
 }
 .prev, .next{
   float: left;
-  margin-top: 25%;
+  margin-top: 5%;
   cursor: pointer;
 }
 .prev{
