@@ -1,35 +1,24 @@
-.slider-container{
-  /* FIXME to modify size and proportions */
-  width: var(--image-width);
-  margin: 40px auto;
-  overflow: auto;
+.slider-inner img{
+  max-width: 200%;
+  min-width: 25%;
 }
-
 .slider-inner{
-  /* FIXME to modify size and proportions (size of it has to be the same
-  size as the img size inside */
-  width: var(--image-width);
-
-  position: relative;
-  overflow: hidden;
   float: left;
-  padding: 5px;
 }
 
 .slider-inner img{
   display: none;
-  width: var(--image-width);
-  height: var(--imgae-height);
 }
-
 .slider-inner img.active{
   display: inline-block;
 }
+
 .prev, .next{
   float: left;
   margin-top: 5%;
   cursor: pointer;
 }
+
 .prev{
   position: relative;
   z-index: 100;
