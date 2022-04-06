@@ -113,7 +113,7 @@ main{
     margin: 20px 20px 40px 20px;
     background-color: #646464;
     box-shadow: 5px 5px 10px #000000;
-    
+    color: white;
     transition: box-shadow 0.2s ease-in-out;
     transition: all 0.2s ease-out;
 }
@@ -135,4 +135,16 @@ main{
 /* Slide show on drivers page */
 .slide img{
     width: 50%;
+}
+
+
+
+input{
+    background-color: #00000000;
+    border: none;
+    border-bottom: 1px greenyellow solid;
+    color: white
+}
+input::placeholder{
+    color: white;
 }

@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
+    <script src="/scripts/form_validation.js"></script>
 </head>
 
 <body>
@@ -115,6 +116,25 @@
                 </div>
             </div>
         </article>
+
+        <div class="article-short">
+            <form name="Form" method="post">
+                <table>
+                    <tr>
+                        <td><input type="text" name="name" placeholder="Imię"/></td>
+                        <td><input type="text" name="surname" placeholder="Nazwisko"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" name="email" required="true" placeholder="Adres email"/></td>
+                        <td><input type="number" name="phone" required="true" placeholder="Numer telefonu"/></td>
+                    </tr>
+                    <tr>
+                        <td id="saved">Zapisz mnie na newsletter:</td>
+                        <td><input type="button" onclick="confirmation()" value="ZAPISZ" name="button"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -132,3 +152,31 @@
 
 </body>
 </html>
+
+<script>
+    function confirmation() {
+    var all_filled = true
+    
+    var name = document.forms["Form"]["name"].value;
+    var surname = document.forms["Form"]["surname"].value;
+    var mail = document.forms["Form"]["email"].value;
+    var phone = document.forms["Form"]["phone"].value;
+    if (name == null || name == "" && surname == null || surname == "" && mail == null || mail == "" && phone == null || phone == "") {
+        var all_filled = false;
+    }
+
+    // regex mail validation
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    var mail_test = re.test(mail)
+    if(mail_test){
+        document.getElementById("saved").innerHTML = "Proszę wpisać poprawny adres email";
+    }
+
+    // form validation
+    if(all_filled && mail_test)
+        document.getElementById("saved").innerHTML = "Zapisano! Dziękujemy!";
+    else if(!all_filled && mail_test)
+        document.getElementById("saved").innerHTML = "Proszę uzupełnić wszystkie pola";
+    console.log(all_filled);
+}   
+</script>
