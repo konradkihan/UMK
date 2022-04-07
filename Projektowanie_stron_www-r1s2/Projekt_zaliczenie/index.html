@@ -118,7 +118,7 @@
         </article>
 
         <div class="article-short">
-            <form name="Form" method="post">
+            <form name="Form" id="myform" method="post" action="add_to_database.php">
                 <table>
                     <tr>
                         <td><input type="text" name="name" placeholder="Imię"/></td>
@@ -130,7 +130,7 @@
                     </tr>
                     <tr>
                         <td id="saved">Zapisz mnie na newsletter:</td>
-                        <td><input type="button" onclick="confirmation()" value="ZAPISZ" name="button"></td>
+                        <td><input type="button" onclick="runjs()" value="ZAPISZ" name="subbtn"></td>
                     </tr>
                 </table>
             </form>
@@ -155,28 +155,29 @@
 
 <script>
     function confirmation() {
-    var all_filled = true
-    
-    var name = document.forms["Form"]["name"].value;
-    var surname = document.forms["Form"]["surname"].value;
-    var mail = document.forms["Form"]["email"].value;
-    var phone = document.forms["Form"]["phone"].value;
-    if (name == null || name == "" && surname == null || surname == "" && mail == null || mail == "" && phone == null || phone == "") {
-        var all_filled = false;
+        // check if all filled
+        var name = document.forms["Form"]["name"].value;
+        var surname = document.forms["Form"]["surname"].value;
+        var mail = document.forms["Form"]["email"].value;
+        var phone = document.forms["Form"]["phone"].value;
+        if (name == null || name == "" && surname == null || surname == "" && mail == null || mail == "" && phone == null || phone == "")
+            return false;
+
+        // regex mail validation
+        const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        var mail_test = re.test(mail)
+        if(!mail_test)
+            return false;
+
+        // if all test passed
+        return true;
+    }   
+
+    function runjs(){
+        if(confirmation())
+            document.getElementById("myform").submit();
+        else
+            document.getElementById("saved").innerHTML = "Wprowadź dane poprawnie";
     }
 
-    // regex mail validation
-    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    var mail_test = re.test(mail)
-    if(mail_test){
-        document.getElementById("saved").innerHTML = "Proszę wpisać poprawny adres email";
-    }
-
-    // form validation
-    if(all_filled && mail_test)
-        document.getElementById("saved").innerHTML = "Zapisano! Dziękujemy!";
-    else if(!all_filled && mail_test)
-        document.getElementById("saved").innerHTML = "Proszę uzupełnić wszystkie pola";
-    console.log(all_filled);
-}   
 </script>

@@ -1,13 +1,28 @@
 <?php
     
     function save_to_db(
-        $host = "localhost";
-        $user = "root";
-        $haslo = "";
-        $db = "umkwww";
+        $host = "localhost",
+        $user = "root",
+        $password = "",
+        $db = "umkwww"
     ){
-        echo("A")
+        $connection = mysqli_connect($host, $user, $password, $db);
+        
+        $phone = $_POST["phone"];
+        $email = $_POST["email"];
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+
+        $query = "INSERT INTO newsletter (`phone_number`, `email`, `name`, `surname`) VALUES('$phone', '$email', '$name', '$surname');";
+
+        $result = mysqli_query($connection, $query);
+
+        mysqli_close($connection);
+
+        header("Location: index.html");
     }
-    
-    // TODO make database and connect file with js function
+
+
+
+    save_to_db();
 ?>
