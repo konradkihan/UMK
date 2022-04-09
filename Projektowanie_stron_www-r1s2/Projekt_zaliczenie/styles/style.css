@@ -48,7 +48,6 @@ a:hover{
     text-decoration: none;
 }
 
-
 main{
     margin-left: 5%;
     margin-right: 5%;
@@ -146,4 +145,13 @@ input{
 }
 input::placeholder{
     color: white;
+}
+
+
+.article_img{
+    max-width: 90vh;
+    float: right;
+    margin-top: 3vh;
+    border-radius: 5px;
+
 }
