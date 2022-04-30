@@ -1,0 +1,36 @@
+1. BST - drzewo binarne którego lewe poddrzewo zawiera wartości mniejsze niż niż wartość korzenia, natomaist prawe - o wartościach większych bądź równych.
+
+5. Wyszukiwanie następnika w drzewie:
+• Interesuje nas wierzchołek, którego wartość byłaby
+wypisywana jako następna w obiegu in-order*
+• Jeśli prawe poddrzewo jest niepuste, jest on jego
+minimalnym elementem
+• Jeśli prawe poddrzewo jest puste, jest on
+przodkiem, który jeszcze nie był przetwarzany w
+obiegu in-order, czyli najniższy, dla którego
+przetwarzany wierzchołek leży w jego lewym
+poddrzewie
+
+* = Najpierw wykonywane jest działanie na jednym z synów, następnie na rodzicu i na końcu na drugim synu.
+
+6. Wstawianie klucza
+• Należy wyszukać wierzchołek zawierający
+etykietę, która jest największa spośród
+mniejszych od wstawianego klucza i dodać do
+jej prawego poddrzewa jako nowe minimum
+• Jeśli takiej nie ma – dodajemy nowy element
+jako minimalny w drzewie
+• Dodawanie do pustego drzewa to tworzenie
+drzewa jednoelementowego
+• Można dodać drugi węzeł o tej samej etykiecie
+
+7. Usuwanie klucza
+Jeśli wierzchołek nie ma któregoś z dzieci,
+usuwamy go i podpinamy ewentualne
+istniejące dziecko do jego rodzica
+• Jeśli wierzchołek ma oboje dzieci, znajdujemy
+jego następnik, kopiujemy etykietę następnika
+do przetwarzanego wierzchołka i usuwamy
+następnik
+• Jeśli korzeń nie ma któregoś z dzieci, może
+zostać usunięty w trakcie tej procedury!
