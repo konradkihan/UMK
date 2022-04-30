@@ -173,8 +173,10 @@
     }   
 
     function runjs(){
-        if(confirmation())
-            document.getElementById("myform").submit();
+	    if(confirmation()){
+	    	console.log("Sent!");
+            	document.getElementById("myform").submit();
+	    }
         else
             document.getElementById("saved").innerHTML = "Wprowadź dane poprawnie";
     }
