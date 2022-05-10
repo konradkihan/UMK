@@ -85,4 +85,4 @@ graph.add_edge(6, 8, 5)
 graph.add_edge(7, 8, 12)
 
 
-    graph.prims_mst()
+graph.prims_mst()
