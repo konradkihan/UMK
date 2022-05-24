@@ -73,22 +73,4 @@
     </div>
 </article>
 
-<div class="article-short">
-    <form name="Form" id="myform" method="post" action="add_to_database.php">
-        <table>
-            <tr>
-                <td><input type="text" name="name" placeholder="Imię"/></td>
-                <td><input type="text" name="surname" placeholder="Nazwisko"/></td>
-            </tr>
-            <tr>
-                <td><input type="email" name="email" required="true" placeholder="Adres email"/></td>
-                <td><input type="number" name="phone" required="true" placeholder="Numer telefonu"/></td>
-            </tr>
-            <tr>
-                <td id="saved">Zapisz mnie na newsletter:</td>
-                <td><input type="button" onclick="runjs()" value="ZAPISZ" name="subbtn"></td>
-            </tr>
-        </table>
-    </form>
-</div>
 </main>

@@ -1,8 +1,9 @@
-
+<head>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="scripts/cars.js"></script> 
-
-
+    <script src="scripts/cars.js"></script>
+    <link rel="stylesheet" href="styles/cars.css"> 
+</head>
+<body>
    <main class="content text-decoration-none">
         <div class="row">
             <div class="col-6 paragraph-box">
@@ -40,7 +41,5 @@
         </div>
 
     </main>
-
-    <!-- <script src="js/scripts.js"></script> -->
 </body>
-</html>
+    <!-- <script src="js/scripts.js"></script> -->
