@@ -1,47 +1,3 @@
-<!doctype html>
-
-<html lang="pl">
-<head>
-    <meta charset="utf-8">
-
-    <title>F1 2021</title>
-    <meta name="description" content="Nieoficjalna strona dla sezonu formuły 2021">
-    <meta name="author" content="Konrad Kihan">
-
-    <link rel="icon" type="image/x-icon" href="/images/f1_logo.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../styles/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
-    
-    <header class="header">
-        <a href="../../index.html">
-            <img src="../../images/f1_logo.png" alt="F1 logo"> 
-            Nieoficjalna strona F1 o sezonie 2021
-        </a>
-    </header>
-
-    <nav class="navbar text-decoration-none">
-        <div class="row">
-            <div class="col">
-                <a href="news.html">Nowości</a> 
-            </div>
-            <div class="col">
-                <a href="../cars.html">Samochody</a>
-            </div>
-            <div class="col">
-                <a href="../drivers.html">Kierowcy</a>
-            </div>
-
-        </div>
-    </nav>
-
     <main class="content text-decoration-none">
         <h2 class="paragraph-box">Koniec sezonu 2021 Formuły 1</h2>
 
@@ -95,9 +51,9 @@
                 </div>
 
                 <div class="col">
-                    <img class="article_img" src="../../images/articles/finale_mv_lh_talk.jpeg" alt="Max and lewis talking">
-                    <img class="article_img" src="../../images/articles/finale_mv_overtake.jpg" alt="Max overtaking">
-                    <img class="article_img" src="../../images/articles/finale_mv_trophy.jpg" alt="Verstappen with trophy">
+                    <img class="article_img" src="images/articles/finale_mv_lh_talk.jpeg" alt="Max and lewis talking">
+                    <img class="article_img" src="images/articles/finale_mv_overtake.jpg" alt="Max overtaking">
+                    <img class="article_img" src="images/articles/finale_mv_trophy.jpg" alt="Verstappen with trophy">
                 </div>
 
             </article>
@@ -105,19 +61,6 @@
         <!-- </div> -->
         
     </main>
-
-    <footer class="footer">
-        <div class="footer-info">
-            <h4>
-                Autor: Konrad Kihan
-            <h4>
-            <p>
-                grupa LG, informatyka inżynierska 1rok<br>
-                numer indeksu: 313101
-            </p>
-        </div>
-    </footer>
-
 
     <script src="js/scripts.js"></script>
 </body>
